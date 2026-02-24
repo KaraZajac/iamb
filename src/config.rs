@@ -977,13 +977,7 @@ impl ApplicationSettings {
 
         let macros = merge_maps(profile.macros.take(), macros).unwrap_or_default();
         let layout = profile.layout.take().or(layout).unwrap_or_default();
-
-        let proxy_url = profile
-            .proxy
-            .take()
-            .unwrap_or_default()
-            .merge(global_proxy.unwrap_or_default())
-            .url;
+        let proxy_url = profile.proxy.take().unwrap_or_default().merge(global_proxy.unwrap_or_default()).url;
 
         let tunables = global.unwrap_or_default();
         let tunables = profile.settings.take().unwrap_or_default().merge(tunables);
